@@ -9,12 +9,13 @@ const ListsScreen = () => {
     { name: 'C' },
     { name: 'D' },
     { name: 'E' },
+    { name: 'F' },
   ];
 
   return (
     <FlatList
-      horizontal
-      showsHorizontalScrollIndicator={false}
+      // horizontal
+      // showsHorizontalScrollIndicator={false}
       keyExtractor={(friend) => friend.name}
       data={friends}
       renderItem={({ item }) => (
