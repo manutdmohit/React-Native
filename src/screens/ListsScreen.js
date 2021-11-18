@@ -10,6 +10,7 @@ const ListsScreen = () => {
     { name: 'D' },
     { name: 'E' },
     { name: 'F' },
+    { name: 'G' },
   ];
 
   return (
