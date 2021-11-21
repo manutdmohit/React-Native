@@ -11,14 +11,24 @@ const SquareScreen = () => {
 
   console.log(red, green, blue);
 
-  if ((red || green || blue) > 255 || (red || green || blue) < 0) {
-  }
+  const setColor = (color, change) => {
+    // color === "red", "green", "blue"
+    // change === +15, -15
+
+    if (color === 'red') {
+      if (red + change > 255 || red + change < 0) {
+        return;
+      } else {
+        setRed(red + change);
+      }
+    }
+  };
 
   return (
     <View>
       <ColorCounter
-        onIncrease={() => setRed(red + CHANGE_COLOR_VALUE)}
-        onDecrease={() => setRed(red - CHANGE_COLOR_VALUE)}
+        onIncrease={() => setColor('red', CHANGE_COLOR_VALUE)}
+        onDecrease={() => setColor('red', -1 * CHANGE_COLOR_VALUE)}
         color="Red"
       />
 
