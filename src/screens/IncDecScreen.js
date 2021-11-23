@@ -3,11 +3,15 @@ import { View, Text } from 'react-native';
 import IncrementDecrement from '../components/IncrementDecrement';
 
 const reducer = (state, action) => {
-  switch (action.numToChange) {
-    case 'num':
-      return state.num + action.amount > 100 || state.num + action.amount < 0
+  switch (action.type) {
+    case 'increment':
+      return state.num + action.payload > 100
         ? state
-        : { ...state, num: state.num + action.amount };
+        : { ...state, num: state.num + action.payload };
+    case 'decrement':
+      return state.num - action.payload < 0
+        ? state
+        : { ...state, num: state.num - action.payload };
     default:
       return state;
   }
@@ -19,8 +23,8 @@ const IncDecScreen = () => {
     <View>
       <IncrementDecrement
         method="Increment Decrement"
-        onIncrease={() => dispatch({ numToChange: 'num', amount: 15 })}
-        onDecrease={() => dispatch({ numToChange: 'num', amount: -15 })}
+        onIncrease={() => dispatch({ type: 'increment', payload: 15 })}
+        onDecrease={() => dispatch({ type: 'decrement', payload: 15 })}
       />
       <Text>{state.num}</Text>
     </View>
