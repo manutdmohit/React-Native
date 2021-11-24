@@ -15,7 +15,11 @@ const TextScreen = () => {
         onChangeText={(newValue) => setName(newValue)}
       />
 
-      <Text>The name is {name}</Text>
+      {name.length < 5 ? (
+        <Text>The password must be at least 5 characters</Text>
+      ) : (
+        <Text>The name is {name}</Text>
+      )}
     </View>
   );
 };
